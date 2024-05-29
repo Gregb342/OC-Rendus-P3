@@ -119,7 +119,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
         }
 
         [Fact]
-        public void Test_UpdateProductQuantities()
+        public void Test_MiseAJour_Stock_Produit_BDD()
         {
             // Arrange
             // Création d'un produit à ajouter à la BDD
