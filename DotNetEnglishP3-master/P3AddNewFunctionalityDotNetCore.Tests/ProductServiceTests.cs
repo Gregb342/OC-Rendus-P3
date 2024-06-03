@@ -35,7 +35,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid); // On vérifie que la validation echoue bien
             Assert.Single(validationResults); // Il ne devrait y avoir qu'un seul message d'erreur
-            Assert.Equal("MissingName", validationResults[0].ErrorMessage);
+            Assert.Equal("ErrorMissingName", validationResults[0].ErrorMessage);
         }
 
         [Fact]
@@ -52,7 +52,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid);
             Assert.Single(validationResults);
-            Assert.Equal("MissingPrice", validationResults[0].ErrorMessage);
+            Assert.Equal("ErrorMissingPrice", validationResults[0].ErrorMessage);
         }
 
         [Fact]
@@ -69,8 +69,8 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid);
             Assert.Equal(2, validationResults.Count);
-            Assert.Contains(validationResults, v => v.ErrorMessage == "PriceNotANumber");
-            Assert.Contains(validationResults, v => v.ErrorMessage == "PriceNotGreaterThanZero");
+            Assert.Contains(validationResults, v => v.ErrorMessage == "ErrorPriceNotANumber");
+            Assert.Contains(validationResults, v => v.ErrorMessage == "ErrorPriceNotGreaterThanZero");
         }
 
 
@@ -88,7 +88,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid);
             Assert.Single(validationResults);
-            Assert.Equal("PriceNotGreaterThanZero", validationResults[0].ErrorMessage);
+            Assert.Equal("ErrorPriceNotGreaterThanZero", validationResults[0].ErrorMessage);
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid);
             Assert.Single(validationResults);
-            Assert.Equal("MissingStock", validationResults[0].ErrorMessage);
+            Assert.Equal("ErrorMissingStock", validationResults[0].ErrorMessage);
         }
 
         [Fact]
@@ -122,11 +122,10 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             bool isValid = Validator.TryValidateObject(pVMTest, validationContext, validationResults, true);
 
             // Assert
-            // Assert
             Assert.False(isValid);
             Assert.Equal(2, validationResults.Count);
-            Assert.Contains(validationResults, v => v.ErrorMessage == "StockNotAnInteger");
-            Assert.Contains(validationResults, v => v.ErrorMessage == "StockNotGreaterThanZero");
+            Assert.Contains(validationResults, v => v.ErrorMessage == "ErrorStockNotAnInteger");
+            Assert.Contains(validationResults, v => v.ErrorMessage == "ErrorStockNotGreaterThanZero");
         }
 
         [Fact]
@@ -144,7 +143,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             // Assert
             Assert.False(isValid);
             Assert.Single(validationResults);
-            Assert.Equal("StockNotGreaterThanZero", validationResults[0].ErrorMessage);
+            Assert.Equal("ErrorStockNotGreaterThanZero", validationResults[0].ErrorMessage);
         }
     }
 }
