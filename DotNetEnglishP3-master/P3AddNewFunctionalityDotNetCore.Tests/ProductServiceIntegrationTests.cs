@@ -87,7 +87,7 @@ namespace P3AddNewFunctionalityDotNetCore.Tests
             var productVerify = _context.Product.FirstOrDefault(p => p.Name == "Test product");
             Assert.NotNull(productVerify);
             Assert.Equal(19.99, productVerify.Price);
-            Assert.Equal(10, productVerify.Quantity);
+            Assert.Equal(10, productVerify.Quantity);            
             _productService.DeleteProduct(productVerify.Id);
         }
 
